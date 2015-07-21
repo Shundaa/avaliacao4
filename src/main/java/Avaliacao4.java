@@ -28,6 +28,14 @@ public class Avaliacao4 {
         agenda.novoAviso(c2, 7);
         agenda.novoAviso(c2, 6, 1);
      
+        Date data3 = new Date(System.currentTimeMillis() + 101000);
+        Compromisso c3 = new Compromisso(data3, "Festa 3");
+        agenda.novoCompromisso(c3);
+        agenda.novoAviso(c3,100);
+        agenda.novoAviso(c3,89);
+        agenda.novoAviso(c3,60);
+        agenda.novoAviso(c3,45,5);
+        
         System.out.println("Pressione Enter para terminar...");
         System.in.read();
         agenda.destroi();

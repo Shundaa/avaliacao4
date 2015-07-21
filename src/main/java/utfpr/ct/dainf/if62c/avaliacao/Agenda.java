@@ -43,7 +43,8 @@ public class Agenda {
         
         compromisso.registraAviso(aviso);
         timeNow.setTime(System.currentTimeMillis());
-        timer.schedule(aviso, Math.abs(compromisso.getData().getTime()-timeNow.getTime()-antecedencia*1000));
+        long num=Math.round((compromisso.getData().getTime()-timeNow.getTime()-antecedencia*1000)/1000);
+        timer.schedule(aviso, num*1000);
     }
     
     public void novoAviso(Compromisso compromisso, int antecedencia, int intervalo) {
@@ -51,7 +52,8 @@ public class Agenda {
         
         compromisso.registraAviso(aviso);
         timeNow.setTime(System.currentTimeMillis());
-        timer.schedule(aviso, Math.abs(compromisso.getData().getTime()-timeNow.getTime()-antecedencia*1000), intervalo*1000);
+        long num=Math.round((compromisso.getData().getTime()-timeNow.getTime()-antecedencia*1000)/1000);
+        timer.schedule(aviso, num*1000, intervalo*1000);
     }
     
     public void cancela(Compromisso compromisso) {
